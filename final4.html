@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>City Converter</title>
+	<style>
+		/* styles to center and decorate the page */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+			margin: 0;
+			padding: 0;
+		}
+		#city-container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+		h1 {
+			color: #333;
+			margin-bottom: 10px;
+		}
+		#city {
+			padding: 10px;
+			width: 200px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+		#reply-text {
+			margin-top: 20px;
+			color: #666;
+			font-size: 24px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="city-container">
+		<h1>Enter City Name:</h1>
+		<input id="city" type="text" placeholder="City Name">
+		<button onclick="convertCity()">Submit</button>
+		<p id="reply-text"></p>
+	</div>
+	<script>
+		// 45 city names data
+		const cityData = {
+			"Indore": "Bhopal",
+			"Mumbai": "Pune",
+			"Delhi": "Noida",
+			"Chennai": "Bangalore",
+			"Kolkata": "Hyderabad",
+			// add more city conversions here
+		};
+		
+		function convertCity() {
+			var city = document.getElementById("city").value.trim();
+			var replyText = "";
+			if (cityData[city]) {
+				replyText = cityData[city];
+			} else {
+				replyText = "City not found";
+			}
+			document.getElementById("reply-text").innerHTML = replyText;
+		}
+	</script>
+</body>
+</html>
